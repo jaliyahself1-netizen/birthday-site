@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Love</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 20px;
+      font-size: 2em;
+      color: #fff;
+      background: #ff6f61;
+    }
+    #countdown {
+      font-size: 2em;
+      margin: 20px 0;
+      color: #444;
+    }
+    .gallery img {
+      width: 250px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    }
+    .love-letter, .secret {
+      margin: 40px auto;
+      max-width: 600px;
+      padding: 20px;
+      background: #fff8f0;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .secret button {
+      background: #ff6f61;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    footer {
+      margin: 40px 0;
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>🎉 Happy Birthday, My Love! 🎉</header>
+
+  <section id="countdown"></section>
+
+  <section class="gallery">
+    <h2>💖 Our Memories 💖</h2>
+    <img src="images/photo1.jpg" alt="Memory 1">
+    <img src="images/photo2.jpg" alt="Memory 2">
+    <img src="images/photo3.jpg" alt="Memory 3">
+  </section>
+
+  <section class="love-letter">
+    <h2>💌 A Letter to You 💌</h2>
+    <p>Happy Birthday, my love! You make my world brighter every single day. 
+    I’m so grateful for all the memories we’ve created, and I can’t wait for 
+    all the adventures ahead. This little site is just a tiny gift to show 
+    how much you mean to me. 💕</p>
+  </section>
+
+  <section class="playlist">
+    <h2>🎶 Our Playlist 🎶</h2>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M" width="80%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+  </section>
+
+  <section class="secret">
+    <h2>🔐 Secret Message 🔐</h2>
+    <button onclick="document.getElementById('hiddenMessage').style.display='block'">Click to Reveal</button>
+    <p id="hiddenMessage" style="display:none; margin-top:20px;">You are my everything 💖 Forever and always. 🥰</p>
+  </section>
+
+  <footer>Made with ❤️ just for you</footer>
+
+  <script>
+    // Countdown Timer
+    function updateCountdown() {
+      const now = new Date();
+      const year = now.getFullYear();
+      let birthday = new Date(year, 9, 7); // October = month 9 (0-based index)
+      if (now > birthday) {
+        birthday = new Date(year + 1, 9, 7);
+      }
+      const diff = birthday - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      document.getElementById("countdown").innerHTML = 
+        `⏳ ${days}d ${hours}h ${minutes}m ${seconds}s until October 7 🎂`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
